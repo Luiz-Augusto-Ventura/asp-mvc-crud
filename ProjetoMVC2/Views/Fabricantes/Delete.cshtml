@@ -1,0 +1,67 @@
+﻿@model ProjetoMVC2.Models.Fabricante
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Remover fabricate</title>
+    <link href="~/content/materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="~/Images/materialize_icon.png" sizes="32x32">
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav class="light-red lighten-1" role="navigation">
+            <div class="nav-wrapper container">
+                <div class="brand-logo left hide-on-small-only">Removendo fabricante</div>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="@Url.Action("Index")">Voltar ao início</a></li>
+                </ul>
+
+                <div class="brand-logo right hide-on-med-and-up" style="font-size: 22px;">Removendo fabricante</div>
+                <a href="@Url.Action("Index")" class="hide-on-large-only"><i class="material-icons">chevron_left</i></a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        
+        <br />
+        <div class="card-panel grey lighten-4 grey-text text-darken-1 z-depth-0">
+            <i class="material-icons left">info</i>
+            Deseja realmente remover este fabricante?
+        </div>
+
+        <div>
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @*<b>@Html.DisplayNameFor(model => model.Nome) : </b>*@
+                    <b>Fabricante : </b>
+                    @Html.DisplayFor(model => model.Nome)
+                </dt>
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    @*<input type="submit" value="Delete" class="btn btn-default" /> |*@
+                    <br />
+                    <button class="btn waves-effect waves-light red lighten-1" type="submit" name="Delete"><i class="material-icons right">delete</i>Remover</button>
+                </div>
+            }
+        </div>
+    </div>
+
+    <script src="~/scripts/jquery-2.1.1.min.js"></script>
+    <script src="~/scripts/materialize/materialize.js"></script>
+    <script src="~/scripts/materialize/init.js"></script>
+</body>
+</html>

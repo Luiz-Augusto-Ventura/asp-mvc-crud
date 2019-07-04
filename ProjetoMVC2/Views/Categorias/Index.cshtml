@@ -1,0 +1,89 @@
+﻿@model IEnumerable<ProjetoMVC2.Models.Categoria>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Início - Categorias</title>
+    <link href="~/content/materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="~/Images/materialize_icon.png" sizes="32x32">
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav class="light-red lighten-1" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="@Url.Action("Index", "Categorias")" class="brand-logo hide-on-small-only"><i class="material-icons right">format_list_bulleted</i>Categorias</a>                
+                <ul class="right hide-on-med-and-down">
+                    <li class="active"><a href="@Url.Action("Index", "Categorias")">Categorias</a></li>
+                    <li><a href="@Url.Action("Index", "Fabricantes")">Fabricantes</a></li>
+                    <li><a href="@Url.Action("Index", "Produtos")">Produtos</a></li>
+                </ul>
+
+                <a id="logo-container" href="@Url.Action("Index", "Categorias")" class="brand-logo hide-on-med-and-up" style="font-size: 22px;"><i class="material-icons right">format_list_bulleted</i>Categorias</a>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="@Url.Action("Index", "Categorias")">Categorias</a></li>
+                    <li><a href="@Url.Action("Index", "Fabricantes")">Fabricantes</a></li>
+                    <li><a href="@Url.Action("Index", "Produtos")">Produtos</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <table class="highlight centered">
+        <thead>
+            <tr>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Nome)*@
+                    Categoria
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="hide-on-med-and-down container">
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </div>
+                        <div class="hide-on-large-only container left">
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="hide-on-med-and-down right container">
+                            <a class = "btn waves-effect waves-light grey" href="@Url.Action("Edit", new { id = item.CategoriaID })"><i class="material-icons right">edit</i>Alterar</a> 
+                            <a class = "btn waves-effect waves-light grey" href="@Url.Action("Details", new { id = item.CategoriaID })"><i class="material-icons right">info</i>Detalhes</a> 
+                            <a class = "btn waves-effect waves-light grey" href="@Url.Action("Delete", new { id = item.CategoriaID })"><i class="material-icons right">delete</i>Remover</a>
+                        </div>
+                        <div class="hide-on-large-only">
+                            <a class="dropdown-button grey-text" href="#" data-activates="dropdown1"><i class="material-icons center">more_horiz</i></a>
+                            <ul id="dropdown1" class="dropdown-content">
+                                <li><a class="red-text" href="@Url.Action("Edit", new { id = item.CategoriaID })">Alterar</a></li>
+                                <li><a class="red-text" href="@Url.Action("Details", new { id = item.CategoriaID })">Detalhes</a></li>
+                                <li><a class="red-text" href="@Url.Action("Delete", new { id = item.CategoriaID })">Remover</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="container center">
+        <br />
+        <a href="@Url.Action("Create")" class="btn-large waves-effect waves-light red lighten-1">Criar novo<i class="material-icons right">add</i></a>
+    </div>
+
+    <script src="~/scripts/jquery-2.1.1.min.js"></script>
+    <script src="~/scripts/materialize/materialize.js"></script>
+    <script src="~/scripts/materialize/init.js"></script>
+</body>
+</html>

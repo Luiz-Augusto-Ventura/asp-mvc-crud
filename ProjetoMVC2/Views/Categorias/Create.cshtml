@@ -1,0 +1,65 @@
+﻿@model ProjetoMVC2.Models.Categoria
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Nova categoria</title>
+    <link href="~/content/materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav class="light-red lighten-1" role="navigation">
+            <div class="nav-wrapper container">
+                <div class="brand-logo left hide-on-small-only">Criando categoria</div>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="@Url.Action("Index")">Voltar ao início</a></li>
+                </ul>
+
+                <div class="brand-logo right hide-on-med-and-up" style="font-size: 22px;">Criando categoria</div>
+                <a href="@Url.Action("Index")" class="hide-on-large-only"><i class="material-icons">chevron_left</i></a>
+            </div>
+        </nav>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="row container">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <br />
+            <div class="card-panel grey lighten-4 grey-text text-darken-1 z-depth-0">
+                <i class="material-icons left">info</i>
+                Preencha os campos e clique em "Criar" para adicionar uma nova categoria.
+            </div>
+
+            <form>
+                <div class="input-field col s12">
+                    <div class="row">
+                        @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.LabelFor(model => model.Nome, "Nome da categoria")
+                        @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </form>
+
+            <div class="form-group">
+                <div>
+                    <button class="btn waves-effect waves-light red lighten-1" type="submit" name="Create"><i class="material-icons right">add</i>Criar</button>
+                </div>
+            </div>
+        </div>
+    }
+    
+    <script src="~/scripts/jquery-2.1.1.min.js"></script>
+    <script src="~/scripts/materialize/materialize.js"></script>
+    <script src="~/scripts/materialize/init.js"></script>
+</body>
+</html>

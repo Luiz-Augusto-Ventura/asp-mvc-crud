@@ -1,0 +1,58 @@
+﻿@model ProjetoMVC2.Models.Categoria
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detalhes da categoria</title>
+    <link href="~/content/materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="~/Images/materialize_icon.png" sizes="32x32">
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav class="light-red lighten-1" role="navigation">
+            <div class="nav-wrapper container">
+                <div class="brand-logo left hide-on-small-only">Detalhes da categoria</div> 
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="@Url.Action("Index")">Voltar ao início</a></li>
+                </ul>
+
+                <div class="brand-logo right hide-on-med-and-up" style="font-size: 22px;">Detalhes da categoria</div>
+                <a href="@Url.Action("Index")" class="hide-on-large-only"><i class="material-icons">chevron_left</i></a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        
+        <br />
+        <div class="card-panel grey lighten-4 grey-text text-darken-1 z-depth-0">
+            <i class="material-icons left">info</i>
+            Informações sobre a categoria
+        </div>
+
+        <dl class="dl-horizontal">
+            <dt>
+                @*<b>@Html.DisplayNameFor(model => model.Nome) : </b>*@
+                <b>Categoria : </b>
+                @Html.DisplayFor(model => model.Nome)
+            </dt>    
+        </dl>
+    </div>
+
+    <div class="container">
+        <br />
+        <a href="@Url.Action("Edit", new { id = Model.CategoriaID })" class="btn waves-effect waves-light red lighten-1">Alterar<i class="material-icons right">edit</i></a>
+    </div>
+
+    <script src="~/scripts/jquery-2.1.1.min.js"></script>
+    <script src="~/scripts/materialize/materialize.js"></script>
+    <script src="~/scripts/materialize/init.js"></script>
+</body>
+</html>
