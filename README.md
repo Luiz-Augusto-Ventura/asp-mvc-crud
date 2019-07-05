@@ -7,6 +7,9 @@
   Ainda, para desenvolver o front-end da aplicação, foi utilizado o framework Materialize 0.97.6 e o JQuery 2.1.1.
   
   
+*TODOS OS DADOS UTILIZADOS NO PROJETO SÃO FICTÍCIOS, E FORAM CRIADOS COM O ÚNICO INTUITO DE ESTUDO. 
+  
+  
 Capturas de tela:
 
 ![Captura de tela](screenshots/captura_inicio.png)
