@@ -8,7 +8,9 @@
   
   
 #### TODOS OS DADOS UTILIZADOS NO PROJETO SÃO FICTÍCIOS, E FORAM CRIADOS COM O ÚNICO INTUITO DE ESTUDO. 
-    
+
+##### Outros desenvolvedores: Willian Pereira Mariano
+
 #### Capturas de tela:
 
 ![Captura de tela](screenshots/captura_inicio.png)
